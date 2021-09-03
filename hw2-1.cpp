@@ -58,7 +58,7 @@ void ReadSmall() {
     int N = 0;
     ifstream readfile("Small.txt");
     if (!readfile) {
-        cout << "wrong" << endl;
+        cout << "Can't read file \"Small.txt\"" << endl;
         system ("pause");
         return;
     }
@@ -116,7 +116,7 @@ void ReadSmall() {
         //     cout << Cost[i] << "\t";
         // }
 
-        cout << "\nResult for " << i+1 << endl;
+        cout << "Result for " << i+1 << endl;
         for(int l = 0; l < max_node; l++){
             if(l != i) {
                 cout << l+1;
@@ -128,32 +128,7 @@ void ReadSmall() {
     return;
 }
 
-void ReadSmallOD() {
-    int N = 0;
-    ifstream readfile("SmallOD.txt");
-    if (!readfile) {
-        cout << "wrong" << endl;
-        system ("pause");
-        return;
-    }
-
-    readfile >> N;
-
-    int smallOD_array[N][smallOD_col];
-    for(int i = 0; i < N; i++) {
-        for(int j = 0; j < smallOD_col; j++) {
-            readfile >> smallOD_array[i][j]; 
-            // printf("row%d, col%d, val=%d\n", i, j, smallOD_array[i][j]);
-        }
-    }
-    readfile.close();
-    return;
-
-    // continue for printing and creating other data structures
-}
-
 int main() {
     ReadSmall();
-    ReadSmallOD();
     return 0;
 }
