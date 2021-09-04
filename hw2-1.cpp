@@ -41,7 +41,7 @@ void hw2_push_back(int next_node, int i, deque<int> &d, int small_array[][small_
 
 void PrintQueue(int end_node, int start_node, int *Pre_Node, int *Cost) {
     int pre_node = Pre_Node[end_node];
-    
+    cout << end_node + 1;
     while(pre_node != start_node) {
         cout << "<-" << pre_node;
         pre_node = Pre_Node[pre_node - 1];
@@ -119,7 +119,6 @@ void ReadSmall() {
         cout << "Result for " << i+1 << endl;
         for(int l = 0; l < max_node; l++){
             if(l != i) {
-                cout << l+1;
                 PrintQueue(l, i+1, Pre_Node, Cost);
             }
         }
