@@ -66,7 +66,7 @@ void PrintQueue(int end_node, int start_node, int *Pre_Node, int *Cost, int smal
                         small_array[j][4] = section_cost;
                     }
                 }
-                cout << d_node << " " << o_node << "\tSection Flow: " << section_cost << "\tPath Flow:  " << path_cost << endl;
+                cout << d_node << " " << o_node << "\tSection Flow: " << section_cost << "\tPath Flow: " << path_cost << endl;
                 d_node = o_node;
                 o_node = Pre_Node[o_node - 1];
             }
@@ -79,14 +79,17 @@ void PrintQueue(int end_node, int start_node, int *Pre_Node, int *Cost, int smal
                         small_array[j][4] = section_cost;
                     }
                 }
-                cout << d_node << " " << o_node << "\tSection Flow: " << section_cost << "\tPath Flow:  " << path_cost << endl;
+                cout << d_node << " " << o_node << "\tSection Flow: " << section_cost << "\tPath Flow: " << path_cost << endl;
             }
         }
     }
 }
 
-void PrintSol() {
-
+void PrintSol(int N, int small_array[][small_col]) {
+    cout << "----Updated Solution of Section Costs----" << endl << endl;
+    for (int i = 0; i < N; i++) {
+        printf("fn[%d]=%d an[%d]=%d  Section Flow: %d\n", i, small_array[i][0], i, small_array[i][1], small_array[i][4]);
+    }
 }
 
 void ReadSmallOD(int i, int max_node, int *Pre_Node, int *Cost, int N, int small_array[][small_col]) {
@@ -190,6 +193,8 @@ void ReadSmall() {
 
         ReadSmallOD(i, max_node, Pre_Node, Cost, N, small_array);
     }
+
+    PrintSol(N, small_array);
     return;
 }
 
